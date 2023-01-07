@@ -29,6 +29,8 @@ After using RANSAC and thresholding the flow vectors with higher than smin confi
 |:--:| 
 | *Epipoles for threshold of 30* |
 
+The epipoles are in the direction of the optical flow vectors. So, the number of inliers decreases as we increase the threshold.
+
 Depth at every pixel for which flow exists is computed using the given pixel flow, confidence, epipole, and intrinsic parameters.
 |![depth_1](https://user-images.githubusercontent.com/68454938/211146856-beac0359-1565-47c2-b6a3-3f276238e663.png)
 |:--:| 
