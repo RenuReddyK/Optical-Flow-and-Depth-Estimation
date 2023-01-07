@@ -72,29 +72,3 @@ def flow_lk(Ix, Iy, It, size=5):
             confidence[y, x] = conf
     return image_flow, confidence
 
-# if __name__ == "__main__":
-#     Ix = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]).reshape((5,5))
-#     Iy = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]).reshape((5,5))
-#     print("Ix",Ix)
-#     print("Iy",Iy)
-#     C_I_x =[]
-#     C_I_y = []
-#     for j in [4,3,2,1,0]:
-#         for i in [0,1,2,3,4]:
-#             C_I_x_1 = Ix[i,j]
-#             C_I_y_1 = Iy[i,j]
-#             C_I_x.append(C_I_x_1)
-#             C_I_y.append(C_I_y_1)
-#     C_I_x = np.array(C_I_x)
-#     print(C_I_x)
-#     C_I_y = np.array(C_I_y)
-#     A = np.vstack((C_I_x,C_I_y))
-#     print(A)
-#     # B = np.array([1,2,3,4,5]).T
-#     # X = np.linalg.lstsq(A,B)[0]
-#     # flow = X
-#     # U, D, Vt = np.linalg.svd(A)
-#     # print(flow)
-#     # conf = np.min(np.diag(D))
-    
-
