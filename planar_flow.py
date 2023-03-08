@@ -12,9 +12,6 @@ def compute_planar_params(flow_x, flow_y, K,
     return value:
         sol: np.array(8,)
     """
-    """
-    STUDENT CODE BEGINS
-    """
     
     u = flow_x/K[0,0]
     v = flow_y/K[1,1]
@@ -37,8 +34,5 @@ def compute_planar_params(flow_x, flow_y, K,
     q = np.linalg.lstsq(A,B,rcond = None)[0]
     sol = q.flatten()
 
-    """
-    STUDENT CODE ENDS
-    """
     return sol
     
