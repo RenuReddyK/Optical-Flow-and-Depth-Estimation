@@ -13,14 +13,11 @@ def flow_lk_patch(Ix, Iy, It, x, y, size=5):
         flow: np.array(2,)
         conf: np.array(1,)
     """
-    """
-    STUDENT CODE BEGINS
-    """
+  
     C_I_x = []
     C_I_y = []
     It_x =[]
-    #It_y = []
-    #print(Ix.shape)
+    
     for i in [x+2, x+1, x, x-1, x-2]:
         for j in [y+2, y+1, y, y-1, y-2]:
             if 0 <= i < Ix.shape[0] and 0 <= j < Iy.shape[1]:
@@ -29,27 +26,20 @@ def flow_lk_patch(Ix, Iy, It, x, y, size=5):
                 It_x.append(It[j,i])
                 C_I_y_1 = Iy[j,i]
                 C_I_y.append(C_I_y_1)
-                #It_y.append(It[i,j])
-    #print(c)
+ 
     C_I_x = np.array(C_I_x)
     C_I_y = np.array(C_I_y)
     new_It = (np.array(It_x)).T
     new_It = new_It.reshape((new_It.shape[0],1))
     A = np.vstack((C_I_x,C_I_y)).T
-    #print("A",A.shape)
-    
+ 
     B = -new_It
-    #print("B",B.shape)
     X = np.linalg.lstsq(A,B,rcond = None)[0]
     flow = X
     flow = flow.reshape((flow.shape[0],))
-    #print("Flow",flow)
     U, D, Vt = np.linalg.svd(A)
     conf = np.min(D)
-    #print("conf",conf)
-    """
-    STUDENT CODE ENDS
-    """
+
     return flow, conf
 
 
@@ -70,5 +60,6 @@ def flow_lk(Ix, Iy, It, size=5):
             flow, conf = flow_lk_patch(Ix, Iy, It, x, y)
             image_flow[y, x, :] = flow
             confidence[y, x] = conf
+            
     return image_flow, confidence
 
