@@ -14,11 +14,7 @@ def plot_flow(image, flow_image, confidence, threshmin=10):
     return value:
         None
     """
-
-
-    """
-    STUDENT CODE BEGINS
-    """
+    
     xx = []
     yy = []
     flow_xx = []
@@ -34,10 +30,6 @@ def plot_flow(image, flow_image, confidence, threshmin=10):
     y = np.array(yy)
     flow_x = np.array(flow_xx)
     flow_y = np.array(flow_yy)
-
-    """
-    STUDENT CODE ENDS
-    """
     
     plt.imshow(image, cmap='gray')
     plt.quiver(x, y, (flow_x*10).astype(int), (flow_y*10).astype(int), 
